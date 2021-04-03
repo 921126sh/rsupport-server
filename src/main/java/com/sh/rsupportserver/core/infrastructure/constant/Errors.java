@@ -59,17 +59,17 @@ public class Errors {
     @AllArgsConstructor
     public enum NoticeErrCd {
         /**
-         * "아이디가 입력되지 않았습니다. : [%s]"
+         * "공지번호가 입력되지 않았습니다. : [%s]"
          */
-        NOTICES001("USERS001", "아이디가 입력되지 않았습니다. : [%s]"),
+        NOTICES001("NOTICES001", "공지번호가 입력되지 않았습니다. : [%s]"),
         /**
          * "존재하지않는 공지입니다. : [%s]"
          */
-        NOTICES002("USERS002", "존재하지않는 공지입니다. : [%s]"),
+        NOTICES002("NOTICES002", "존재하지않는 공지입니다. : [%s]"),
         /**
-         * "동일한 아이디가 존재합니다. : [%s]"
+         * "동일한 공지번호가 존재합니다. : [%s]"
          */
-        NOTICES003("USERS003", "동일한 아이디가 존재합니다. : [%s]");
+        NOTICES003("NOTICES003", "동일한 공지번호가 존재합니다. : [%s]");
 
         private String code;
         private String message;

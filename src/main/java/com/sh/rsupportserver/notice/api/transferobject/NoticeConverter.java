@@ -1,6 +1,5 @@
 package com.sh.rsupportserver.notice.api.transferobject;
 
-
 import com.sh.rsupportserver.notice.domain.Notice;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;

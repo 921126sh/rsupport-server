@@ -35,9 +35,9 @@ public class SwaggerConfig {
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("R서포트 과제")
+                .title("알서포트 과제")
                 .description("API DOCUMENT")
-                .license("seonghyun")
+                .license("SeongHyun")
                 .version("1.0")
                 .build();
     }

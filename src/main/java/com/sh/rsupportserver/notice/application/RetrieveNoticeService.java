@@ -1,9 +1,12 @@
 package com.sh.rsupportserver.notice.application;
 
 import com.sh.rsupportserver.notice.api.transferobject.NoticeConverter;
+import com.sh.rsupportserver.notice.api.transferobject.NoticePageResponse;
 import com.sh.rsupportserver.notice.api.transferobject.NoticeResponse;
+import com.sh.rsupportserver.notice.domain.Notice;
 import com.sh.rsupportserver.notice.domain.NoticeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,7 +49,10 @@ public class RetrieveNoticeService {
      *
      * @return 공지 목록
      */
-    public List<NoticeResponse> retrieveNoticeList(Pageable pageable) {
-        return noticeService.getNoticeList(pageable).stream().map(noticeConverter::convert).collect(Collectors.toList());
+    public NoticePageResponse retrieveNoticeList(Pageable pageable) {
+        Page<Notice> pageNotice = noticeService.getNoticeList(pageable);
+        List<NoticeResponse> NoticeResponses = noticeService.getNoticeList(pageable).getContent().stream().map(noticeConverter::convert).collect(Collectors.toList());
+
+        return new NoticePageResponse(pageNotice.getTotalPages(), pageNotice.getPageable(), NoticeResponses);
     }
 }

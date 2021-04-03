@@ -13,6 +13,7 @@ import org.pojomatic.annotations.AutoProperty;
  * @author seonghyun
  */
 @Getter
+@Setter
 @AutoProperty
 @NoArgsConstructor
 @AllArgsConstructor

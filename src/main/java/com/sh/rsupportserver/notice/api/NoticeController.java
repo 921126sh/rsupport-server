@@ -1,5 +1,6 @@
 package com.sh.rsupportserver.notice.api;
 
+import com.sh.rsupportserver.notice.api.transferobject.NoticePageResponse;
 import com.sh.rsupportserver.notice.api.transferobject.NoticeRequest;
 import com.sh.rsupportserver.notice.api.transferobject.NoticeResponse;
 import com.sh.rsupportserver.notice.application.ChangeNoticeService;
@@ -8,14 +9,12 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * 공지 REST 컨트롤러이다.
@@ -40,12 +39,12 @@ public class NoticeController {
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Success", response = NoticeResponse.class)})
     @GetMapping(value = "")
     public @ResponseBody
-    ResponseEntity<List<NoticeResponse>> retrieveNoticeList(@PageableDefault() final Pageable pageable) {
-        ResponseEntity<List<NoticeResponse>> responseEntity;
+    ResponseEntity<NoticePageResponse> retrieveNoticeList(@RequestParam("page") int page, @RequestParam("size") int size) {
+        ResponseEntity<NoticePageResponse> responseEntity;
 
         // 공지 목록을 조회한다.
-        List<NoticeResponse> responses = retrieveNoticeService.retrieveNoticeList(pageable);
-        if (responses.isEmpty()) {
+        NoticePageResponse responses = retrieveNoticeService.retrieveNoticeList(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "noticeNo")));
+        if (responses == null) {
             // 응답(내용없음)을 설정한다.
             responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {

@@ -30,11 +30,11 @@ public class ChangeNoticeService {
      * @param req 공지 요청데이터
      */
     public void registerNotice(NoticeRequest req) {
-        if (CheckUtil.isNullOrEmpty(req.getNoticeTile())) {
-            throw new IllegalArgException(Errors.NoticeErrCd.NOTICES001.getCode(), new Object[]{req.getNoticeTile()});
+        if (CheckUtil.isNullOrEmpty(req.getNoticeTitle())) {
+            throw new IllegalArgException(Errors.NoticeErrCd.NOTICES001.getCode(), new Object[]{req.getNoticeTitle()});
         }
 
-        Notice notice = Notice.of(req.getNoticeTile(), req.getNoticeCtnt());
+        Notice notice = Notice.of(req.getNoticeTitle(), req.getNoticeContent());
 
         noticeService.newSave(notice);
     }

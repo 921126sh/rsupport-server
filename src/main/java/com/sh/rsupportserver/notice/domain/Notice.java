@@ -3,7 +3,6 @@ package com.sh.rsupportserver.notice.domain;
 import com.sh.rsupportserver.core.domain.DomainEntity;
 import com.sh.rsupportserver.notice.api.transferobject.NoticeRequest;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -18,12 +17,6 @@ import javax.persistence.*;
 @RequiredArgsConstructor(staticName = "of")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EntityListeners(AuditingEntityListener.class)
-@SequenceGenerator(
-        name="NOTICE_NO_GENERATOR",
-        sequenceName="NOTICE_NO",
-        initialValue=1,
-        allocationSize = 1
-)
 @Table(name = "TB_NOTICE")
 public class Notice extends DomainEntity {
     /**
@@ -58,7 +51,7 @@ public class Notice extends DomainEntity {
      * @param req 공지 요청데이터
      */
     public void edit(NoticeRequest req) {
-        this.noticeTitle = req.getNoticeTile();
-        this.noticeContent = req.getNoticeCtnt();
+        this.noticeTitle = req.getNoticeTitle();
+        this.noticeContent = req.getNoticeContent();
     }
 }

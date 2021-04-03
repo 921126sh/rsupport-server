@@ -3,8 +3,6 @@ package com.sh.rsupportserver.notice.api.transferobject;
 import com.sh.rsupportserver.core.api.transferobject.BaseRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.pojomatic.annotations.AutoProperty;
 
 /**
@@ -19,11 +17,11 @@ public class NoticeRequest extends BaseRequestDto {
     /**
      * 공지제목
      */
-    private String noticeTile;
+    private String noticeTitle;
 
     /**
      * 공지내용
      */
-    private String noticeCtnt;
+    private String noticeContent;
 }
 

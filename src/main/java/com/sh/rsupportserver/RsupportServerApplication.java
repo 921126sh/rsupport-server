@@ -2,8 +2,6 @@ package com.sh.rsupportserver;
 
 import com.sh.rsupportserver.notice.api.transferobject.NoticeRequest;
 import com.sh.rsupportserver.notice.application.ChangeNoticeService;
-import com.sh.rsupportserver.notice.domain.Notice;
-import com.sh.rsupportserver.notice.infarastructure.repository.NoticeRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,8 +16,7 @@ public class RsupportServerApplication {
     }
 
     /**
-     * TODO: 테스트를 위한 200 개의 공지를 생성한다.
-     * @return
+     * TODO: 테스트를 위해 200 개의 공지를 생성한다.
      */
     @Bean
     public CommandLineRunner initData(ChangeNoticeService changeNoticeService) {
