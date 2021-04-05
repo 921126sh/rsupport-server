@@ -9,8 +9,7 @@
 
 3. RsupportServerApplication start
 
-4. 클라이언트 다운로드
- - https://github.com/esmoney/rsupport-client#readme
+4. [클라이언트 다운로드](https://github.com/esmoney/rsupport-client#readme)
 
 
 # 기술스택
