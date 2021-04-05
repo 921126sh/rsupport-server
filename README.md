@@ -7,9 +7,13 @@
 
 2. gradle refresh
 
-3. RsupportServerApplication start
+3. h2설치(mac일 경우만)
+ - brew install h2 (설치)
+ - h2 (실행)
 
-4. [클라이언트 다운로드](https://github.com/esmoney/rsupport-client#readme)
+4. RsupportServerApplication start
+
+5. [클라이언트 다운로드](https://github.com/esmoney/rsupport-client#readme)
 
 
 # 기술스택
