@@ -7,11 +7,14 @@
 
 2. gradle refresh
 
-3. h2설치(mac일 경우만)
- - brew install h2 (설치)
- - h2 (실행)
+3. RsupportServerApplication start
 
-4. RsupportServerApplication start
+4. h2설치(mac일 경우만)
+ - brew install h2 (설치)
+ - h2 -web (실행)
+ - 생성된 url로 연결(default 8082포트 / 테스트 커넥션 하면 안됨!!!! 바로 연결해야 함!!!!)
+ - http://localhost:8080/rs-server/h2-console 접속
+ - [참고](https://jamie95.tistory.com/171)
 
 5. [클라이언트 다운로드](https://github.com/esmoney/rsupport-client#readme)
 
