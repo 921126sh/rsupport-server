@@ -1,9 +1,7 @@
-package com.sh.rsupportserver.core.infrastructure.configuration;
+package com.sh.rsupportserver.auth.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,11 +14,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
-    /**
-     * 스프링 환경 제공자
-     */
-    @Autowired
-    private Environment environment;
 
     /**
      * 인증관리자 빈
@@ -56,7 +49,7 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 // preflight(HttpMethod.OPTIONS) 요청 오류 방지
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .antMatchers("/**").permitAll()
                 // static resources
                 .antMatchers("/css/**", "/js/**", "/resources/**", "/webjars/**", "/h2/**","/**").permitAll();
     }

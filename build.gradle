@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok:1.18.16'
     runtimeOnly 'com.h2database:h2'
 
     annotationProcessor 'org.projectlombok:lombok'
@@ -41,8 +42,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-test'
+    // Json Token
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
 }
 
-//test {
-//    useJUnitPlatform()
-//}
+test {
+    useJUnitPlatform()
+}

@@ -34,6 +34,13 @@ spring:
         format_sql: true
     show-sql: true
 
+jwt:
+  token:
+    header: X-Auth-Token
+    secret: rsupport?auth
+    # 토큰 만료 시간 (1 day : 86400, 1 week 604800)
+    expiration: 86400
+    origin: rsupport
 
 rsupport:
   info:
